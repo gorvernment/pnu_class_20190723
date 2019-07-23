@@ -5,10 +5,10 @@ from pokemon.models import Pokemon
 
 
 def index(request):
-    qs = Pokemon.objects.all()
-    #return render(request, 'root.html')
+    qs = Pokemon.objects.all()  # QuerySet 타입
+    # return render(request, 'root.html')
     return render(request, 'pokemon/pokemon_list.html', {
-        'pokemon_list' : qs,
+        'pokemon_list': qs,
     })
 
 def pokemon_new(request):
