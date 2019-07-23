@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Pokemon</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+        background-color: #eee;
+    }
+    .wrapper {
+        margin: 300px auto 0;
+        text-align: center;
+    }
+    .pokemon {
+        width: 300px;
+        background-color: white;
+        text-align: center;
+        display: inline-block;
+    }
+    .pokemon h1 {
+        border-bottom: 3px solid;
+        margin: 0 auto;
+        display: inline-block;
+
+        color: white;
+        -webkit-transition: color 1s ease-out;
+        transition: color 1s ease-out;
+    }
+    /*
+    .pokemon h1.pikachu { color: orange; }
+    .pokemon h1.cobook { color: dodgerblue; }
+    .pokemon h1.firey { color: orangered; }
+     */
+    .pokemon img {
+        display: block;
+        margin: -160px auto 0;
+    }
+    .pokemon p {
+        padding: 0 20px;
+    }
+    .pokemon p span {
+        background-color: orange;
+        padding: 2px 20px;
+        /* display: none; */
+    }
+    .pokemon p:first-letter {
+        font-size: 400%;
+        font-weight: bold;
+        float: left;
+    }
+    .pokemon p a {
+    }
+    .skills {
+        color: gray;
+        padding: 20px;
+        border-top: 1px solid #eee;
+        background-color: #dddddd;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="pokemon">
+        <img src="images/pikachu.png" alt="">
+
+        <h1 class="pikachu">Pikachu</h1>
+
+        <p>
+            무엇을 꾸며 인생에 청춘에서만 살 이것이다.
+            그들의 장식하는 얼마나 봄바람이다.
+            이것이야말로 인간에 이것은 부패를 끝에 없으면 하는 때에, 이 부패뿐이다.
+            이상의 예수는 얼음에 청춘 것은 생명을 있는가? 원질이 그들에게 투명하되 피어나는 구할 옷을 인간에 아니다.
+            이 이상, 위하여 열락의 못할 것이다. 역사를 구하지 반짝이는 넣는 위하여 위하여서.
+            굳세게 위하여서 실현에 내려온 유소년에게서 따뜻한 그것은 사막이다.
+            안고, 천지는 군영과 같으며, 있는 인생에 우리 커다란 사막이다.
+        </p>
+        <div class="skills">
+            Lightning
+        </div>
+    </div>
+
+    <div class="pokemon">
+        <img src="images/cobook.png" alt="">
+
+        <h1 class="cobook">Cobook</h1>
+
+        <p>
+            무엇을 꾸며 인생에 청춘에서만 살 이것이다.
+            그들의 장식하는 얼마나 봄바람이다.
+            이것이야말로 인간에 이것은 부패를 끝에 없으면 하는 때에, 이 부패뿐이다.
+            이상의 예수는 얼음에 청춘 것은 생명을 있는가? 원질이 그들에게 투명하되 피어나는 구할 옷을 인간에 아니다.
+            이 이상, 위하여 열락의 못할 것이다. 역사를 구하지 반짝이는 넣는 위하여 위하여서.
+            굳세게 위하여서 실현에 내려온 유소년에게서 따뜻한 그것은 사막이다.
+            안고, 천지는 군영과 같으며, 있는 인생에 우리 커다란 사막이다.
+        </p>
+        <div class="skills">
+            Lightning
+        </div>
+    </div>
+
+    <div class="pokemon">
+        <img src="images/firey.png" alt="">
+
+        <h1 class="firey">Firey</h1>
+
+        <p>
+            무엇을 꾸며 인생에 청춘에서만 살 이것이다.
+            그들의 장식하는 얼마나 봄바람이다.
+            이것이야말로 인간에 이것은 부패를 끝에 없으면 하는 때에, 이 부패뿐이다.
+            이상의 예수는 얼음에 청춘 것은 생명을 있는가? 원질이 그들에게 투명하되 피어나는 구할 옷을 인간에 아니다.
+            이 이상, 위하여 열락의 못할 것이다. 역사를 구하지 반짝이는 넣는 위하여 위하여서.
+            굳세게 위하여서 실현에 내려온 유소년에게서 따뜻한 그것은 사막이다.
+            안고, 천지는 군영과 같으며, 있는 인생에 우리 커다란 사막이다.
+        </p>
+        <div class="skills">
+            Lightning
+        </div>
+    </div>
+</div>
+
+<script src="/assets/jquery-3.4.1.js"></script>
+<script src="/assets/color-thief.js"></script>
+<script>
+    var colorThief = new ColorThief();
+    $(function() {
+        $('.pokemon').each(function() {
+            var img = $(this).find('img')[0];
+            var dominant_color = colorThief.getColor(img);
+            $(this).find('h1').css('color', 'rgb(' + dominant_color + ')');
+        });
+    });
+</script>
+
+</body>
+</html>
