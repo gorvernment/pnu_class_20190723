@@ -1,2 +1,13 @@
 
 Pokemon List
+
+<ul>
+{% for pokemon in pokemon_list %}
+    <li>
+        {{ pokemon.name }}
+        <a href="{{ pokemon.page_url }}" target="_blank">
+            바로가기
+        </a>
+    </li>
+{% endfor %}
+</ul>
