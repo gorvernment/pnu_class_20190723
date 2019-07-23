@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Pokemon
+from .models import Pokemon, Category
+
+admin.site.register(Category)
 
 class PokemonAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'page_tag']

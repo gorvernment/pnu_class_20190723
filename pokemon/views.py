@@ -17,3 +17,4 @@ def pokemon_new(request):
 def pokemon_edit(request, pk):
     message = "기존 포켓몬 #{} 수정 Form".format(pk)
     return HttpResponse(message)
+
