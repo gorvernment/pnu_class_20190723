@@ -2,25 +2,25 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title>Pokemon List</title>
+        <style>
+
+        </style>
     </head>
     <body>
-    <h1>Pokemon List</h1>
+        <h1>Pokemon List</h1>
+        <div id="wrapper"></div>
 
-        <ul>
-        {% for pokemon in pokemon_list %}
-            <li>
-                {{ pokemon.category.name }}
-                {{ pokemon.name }}
-                {% if pokemon.photo %}  {# 저장된 경로가 있다면? => 문자열의 bool과 유사한 판단 #}
-                    <img src="{{ pokemon.photo.url }}" style="width: 100px;" />
-                {% endif %}
-                <a href="{{ pokemon.page_url }}" target="_blank">
-                    바로가기
-                </a>
-            </li>
-        {% endfor %}
-        </ul>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $.get("/pokemon/pokemon_list.html")
+                .then(function (html) {
+                    $('#wrapper').html(html);
+                });
+            // 직접 JS코드를 작성할 때에는 ES5 기준으로 작성하여야 합니다.
+            // document.getElementById("wrapper").innerHTML = "안녕";
+
+        </script>
 
     </body>
 </html>
