@@ -1,13 +1,23 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+    <h1>Pokemon List</h1>
 
-Pokemon List
+        <ul>
+        {% for pokemon in pokemon_list %}
+            <li>
+                {{ pokemon.category.name }}
+                {{ pokemon.name }}
+                <a href="{{ pokemon.page_url }}" target="_blank">
+                    바로가기
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
 
-<ul>
-{% for pokemon in pokemon_list %}
-    <li>
-        {{ pokemon.name }}
-        <a href="{{ pokemon.page_url }}" target="_blank">
-            바로가기
-        </a>
-    </li>
-{% endfor %}
-</ul>
+    </body>
+</html>
