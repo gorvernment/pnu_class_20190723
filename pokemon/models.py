@@ -9,6 +9,7 @@ class Category(models.Model):
 class Pokemon(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    photo = models.ImageField(blank=True)
     page_url = models.URLField()
     desc = models.TextField(blank=True)
 
