@@ -72,33 +72,37 @@
     </style>
 </head>
 <body>
-<h1>Pokemon List</h1>
+    <h1>Pokemon List</h1>
 
-<div class="wrapper">
-    {% for pokemon in pokemon_list %}
-        <div class="pokemon">
-            {% if pokemon.photo %}  {# 저장된 경로가 있다면? => 문자열의 bool과 유사한 판단 #}
-                <img src="{{ pokemon.photo.url }}" alt="{{ pokemon.name }}">
-            {% endif %}
+    <a href="/pokemon/new/">
+        새 포켓몬 등록하기
+    </a>
 
-            <h1 class="pikachu">{{ pokemon.name }}</h1>
+    <div class="wrapper">
+        {% for pokemon in pokemon_list %}
+            <div class="pokemon">
+                {% if pokemon.photo %}  {# 저장된 경로가 있다면? => 문자열의 bool과 유사한 판단 #}
+                    <img src="{{ pokemon.photo.url }}" alt="{{ pokemon.name }}">
+                {% endif %}
 
-            <p>
-                {{ pokemon.desc|linebreaks }}
+                <h1 class="pikachu">{{ pokemon.name }}</h1>
 
-                <br>
+                <p>
+                    {{ pokemon.desc|linebreaks }}
 
-                <a href="{{ pokemon.page_url }}" target="_blank">
-                바로가기
-            </a>
-            </p>
-            <div class="skills">
-                {{ pokemon.category.name }}
+                    <br>
+
+                    <a href="{{ pokemon.page_url }}" target="_blank">
+                    바로가기
+                </a>
+                </p>
+                <div class="skills">
+                    {{ pokemon.category.name }}
+                </div>
             </div>
-        </div>
 
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
 
 
 </body>
