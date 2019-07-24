@@ -34,6 +34,7 @@ urlpatterns = [
 
 urlpatterns += [
     path('api-auth/', include('rest_framework.urls')),
+    # 실행 URL : http://localhost:8000/api-auth/login/
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
