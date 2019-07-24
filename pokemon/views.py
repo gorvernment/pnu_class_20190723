@@ -3,10 +3,17 @@ import json
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView, UpdateView
+from rest_framework.viewsets import ModelViewSet
 
 from pokemon.encoders import MyEncoder
 from pokemon.forms import PokemonForm
 from pokemon.models import Pokemon
+from pokemon.serializers import PokemonSerializer
+
+
+class PokemonViewSet(ModelViewSet):
+    queryset = Pokemon.objects.all()
+    serializer_class = PokemonSerializer
 
 
 # # @login_required
@@ -110,3 +117,4 @@ pokemon_edit = UpdateView.as_view(
     form_class=PokemonForm,
     success_url='/pokemon/',
 )
+
