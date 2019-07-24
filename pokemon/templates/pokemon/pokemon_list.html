@@ -1,26 +1,106 @@
 <!doctype html>
 <html lang="ko">
-    <head>
-        <meta charset="utf-8" />
-        <title>Pokemon List</title>
-        <style>
+<head>
+    <meta charset="utf-8"/>
+    <title>Pokemon List</title>
+    <style>
+        body {
+            background-color: #eee;
+        }
 
-        </style>
-    </head>
-    <body>
-        <h1>Pokemon List</h1>
-        <div id="wrapper"></div>
+        .wrapper {
+            margin: 300px auto 0;
+            text-align: center;
+        }
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script>
-            $.get("/pokemon/pokemon_list.html")
-                .then(function (html) {
-                    $('#wrapper').html(html);
-                });
-            // 직접 JS코드를 작성할 때에는 ES5 기준으로 작성하여야 합니다.
-            // document.getElementById("wrapper").innerHTML = "안녕";
+        .pokemon {
+            width: 300px;
+            background-color: white;
+            text-align: center;
+            display: inline-block;
+        }
 
-        </script>
+        .pokemon h1 {
+            border-bottom: 3px solid;
+            margin: 0 auto;
+            display: inline-block;
 
-    </body>
+            color: white;
+            -webkit-transition: color 1s ease-out;
+            transition: color 1s ease-out;
+        }
+
+
+        .pokemon h1.pikachu { color: orange; }
+        /*
+        .pokemon h1.cobook { color: dodgerblue; }
+        .pokemon h1.firey { color: orangered; }
+         */
+
+        .pokemon img {
+            display: block;
+            margin: -160px auto 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pokemon p {
+            padding: 0 20px;
+        }
+
+        .pokemon p span {
+            background-color: orange;
+            padding: 2px 20px;
+            /* display: none; */
+        }
+
+        .pokemon p:first-letter {
+            font-size: 400%;
+            font-weight: bold;
+            float: left;
+        }
+
+        .pokemon p a {
+        }
+
+        .skills {
+            color: gray;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            background-color: #dddddd;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Pokemon List</h1>
+
+<div class="wrapper">
+    {% for pokemon in pokemon_list %}
+        <div class="pokemon">
+            {% if pokemon.photo %}  {# 저장된 경로가 있다면? => 문자열의 bool과 유사한 판단 #}
+                <img src="{{ pokemon.photo.url }}" alt="{{ pokemon.name }}">
+            {% endif %}
+
+            <h1 class="pikachu">{{ pokemon.name }}</h1>
+
+            <p>
+                {{ pokemon.desc|linebreaks }}
+                
+                <br>
+
+                <a href="{{ pokemon.page_url }}" target="_blank">
+                바로가기
+            </a>
+            </p>
+            <div class="skills">
+                {{ pokemon.category.name }}
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
+
+
+</body>
 </html>

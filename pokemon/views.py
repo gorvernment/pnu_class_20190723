@@ -5,15 +5,18 @@ from pokemon.models import Pokemon
 
 
 def index(request):
-    # return render(request, 'root.html')
-    return render(request, 'pokemon/pokemon_list.html')
-
-def pokemon_list_html(request):
     qs = Pokemon.objects.all()  # QuerySet 타입
     # return render(request, 'root.html')
-    return render(request, 'pokemon/pokemon_list_html.html', {
+    return render(request, 'pokemon/pokemon_list.html', {
         'pokemon_list': qs,
     })
+
+# def pokemon_list_html(request):
+#     qs = Pokemon.objects.all()  # QuerySet 타입
+#     # return render(request, 'root.html')
+#     return render(request, 'pokemon/pokemon_list.html', {
+#         'pokemon_list': qs,
+#     })
 
 def pokemon_new(request):
     return HttpResponse("새 포켓몬 등록 Form")
