@@ -12,6 +12,23 @@ from pokemon.models import Pokemon
 def index(request):
     qs = Pokemon.objects.all()  # QuerySet 타입
     # return render(request, 'root.html')
+
+    format = request.GET.get("format")
+    if format == 'json':
+        qs = tuple(qs)
+        pokemon_list = [
+            {
+                'pk': pokemon.pk,
+                'name': pokemon.name,
+                'photo_url': pokemon.photo.url,
+                'page_url': pokemon.page_url,
+            }
+            for pokemon in qs   # Comprehension 문법
+        ]
+        # json_string = json.dumps(qs)
+        # return HttpResponse(json_string)
+        return JsonResponse(pokemon_list, safe=False)
+
     return render(request, 'pokemon/pokemon_list.html', {
         'pokemon_list': qs,
     })
