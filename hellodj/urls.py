@@ -32,6 +32,9 @@ urlpatterns = [
     path('', root),     # 1급 함수를 지원하는 언어이기에 가능
 ]
 
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
+]
 
 urlpatterns += static(settings.MEDIA_URL,
                       document_root=settings.MEDIA_ROOT)

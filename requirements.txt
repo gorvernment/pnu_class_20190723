@@ -1,3 +1,4 @@
 django~=2.2.0
-Pillow
-django-debug-toolbar
+djangorestframework~=3.10.0
+Pillow~=5.3.0
+django-debug-toolbar~=2.0

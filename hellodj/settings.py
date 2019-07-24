@@ -31,13 +31,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 장고 기본 Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+] + [
+    # Third-Party Apps
     'debug_toolbar',
+    'rest_framework',
+] + [
+    # local Apps
     'pokemon',
 ]
 
