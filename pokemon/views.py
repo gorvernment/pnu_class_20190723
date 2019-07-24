@@ -22,6 +22,7 @@ def index(request):
                 'name': pokemon.name,
                 'photo_url': pokemon.photo.url,
                 'page_url': pokemon.page_url,
+                
             }
             for pokemon in qs   # Comprehension 문법
         ]
