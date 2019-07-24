@@ -1,3 +1,4 @@
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 class Category(models.Model):
@@ -8,7 +9,8 @@ class Category(models.Model):
 
 class Pokemon(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,
+                            validators=[MinLengthValidator(3)])
     photo = models.ImageField(blank=True)
     page_url = models.URLField()
     desc = models.TextField(blank=True)
