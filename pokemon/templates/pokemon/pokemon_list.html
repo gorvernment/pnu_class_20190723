@@ -85,7 +85,11 @@
                     <img src="{{ pokemon.photo.url }}" alt="{{ pokemon.name }}">
                 {% endif %}
 
-                <h1 class="pikachu">{{ pokemon.name }}</h1>
+                <h1 class="pikachu">
+                    <a href="/pokemon/{{ pokemon.pk }}/edit/">
+                    {{ pokemon.name }}
+                    </a>
+                </h1>
 
                 <p>
                     {{ pokemon.desc|linebreaks }}
