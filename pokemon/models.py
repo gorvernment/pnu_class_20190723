@@ -17,3 +17,11 @@ class Pokemon(models.Model):
 
     def __str__(self):
         return self.name
+
+    def as_dict(self):
+        return {
+            'pk': self.pk,
+            'name': self.name,
+            'photo_url': self.photo.url,
+            'page_url': self.page_url,
+        }
